@@ -1,1 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Categories · TechStore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body data-page="categories">
+    <div id="container">
+      <div class="tailwind css-uwf2km css-exq74d">
+        <div class="flex min-h-screen flex-col">
+          <div class="tailwind">
+            <div class="flex min-h-screen flex-col">
+              <header class="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+                <div class="container mx-auto px-4 lg:px-8">
+                  <div class="flex h-16 items-center justify-between">
+                    <a class="flex items-center gap-2" href="./index.html">
+                      <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
+                        <span class="font-bold text-white text-xl">T</span>
+                      </div>
+                      <span class="hidden font-bold text-xl sm:inline-block">TechStore</span>
+                    </a>
+                    <nav class="hidden md:flex items-center gap-8">
+                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html">Products</a>
+                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html">Categories</a>
+                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html">Deals</a>
+                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html">About</a>
+                    </nav>
+                    <div class="flex items-center gap-4">
+                      <button aria-label="Search" class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
+                        <img src="../static/icons/search-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                      </button>
+                      <a class="relative flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors" aria-label="Shopping cart" href="./cart.html">
+                        <img src="../static/icons/shopping-cart-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                        <span data-cart-count class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white" hidden>0</span>
+                      </a>
+                      <button aria-label="Menu" class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors md:hidden">
+                        <img src="../static/icons/menu-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <main class="flex-1">
+                <div class="min-h-screen bg-gray-50">
+                  <div class="container mx-auto px-4 lg:px-8 py-8">
+                    <div id="categoriesPageRoot"></div>
+                  </div>
+                </div>
+              </main>
