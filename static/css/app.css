@@ -1,0 +1,14 @@
+@import "./theme.css";
+@import "tailwindcss";
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop {
+    border-color: var(--color-border);
+  }
+}
+
+@source "../../templates/**/*.html";
+@source "../js/**/*.js";
