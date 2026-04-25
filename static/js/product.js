@@ -1,3 +1,17 @@
+function addToCart(productId, quantity = 1) {
+  const qty = Math.max(1, Math.min(99, Math.floor(Number(quantity)) || 1));
+  const cart = getCart();
+  const existing = cart.find((item) => item.id === productId);
+
+  if (existing) {
+    existing.quantity += qty;
+  } else {
+    cart.push({ id: productId, quantity: qty });
+  }
+
+  setCart(cart);
+}
+
 function initProductPage() {
   const root = document.getElementById("productPageRoot");
   if (!root) {
