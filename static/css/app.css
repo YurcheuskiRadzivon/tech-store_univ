@@ -1,4 +1,3 @@
-/* Tailwind entry: run `npm run build:css` → bundle.css (do not edit bundle.css). */
 @import "./theme.css";
 @import "tailwindcss";
 
@@ -26,11 +25,6 @@
 }
 
 @layer base {
-  /*
-    Tailwind's .border only sets width; without a color, CSS uses currentColor (text color),
-    which reads as a harsh black outline on controls and cards. Default to theme border.
-    Explicit utilities like border-gray-200 still win (higher specificity than *).
-  */
   *,
   ::after,
   ::before,
