@@ -1,1 +1,3 @@
-//todo
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartBadge();
+});
