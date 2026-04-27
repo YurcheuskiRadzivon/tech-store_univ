@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="../static/css/bundle.css" />
   <link rel="stylesheet" href="../static/css/style.css" />
 </head>
+
 <body data-page="categories">
   <div id="container">
     <div>
@@ -45,12 +47,24 @@
                         class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white"
                         hidden>0</span>
                     </a>
-                    <button aria-label="Menu"
+                    <button id="mobileNavToggle" type="button" aria-label="Menu" aria-expanded="false"
+                      aria-controls="mobileNav"
                       class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors md:hidden">
                       <img src="../static/icons/menu-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
                     </button>
                   </div>
                 </div>
+                <nav id="mobileNav" class="flex flex-col gap-4 border-t border-gray-200 pb-4 pt-4 md:hidden" hidden
+                  aria-label="Main navigation">
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html"
+                    data-discover="true">Products</a>
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html"
+                    data-discover="true">Categories</a>
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html"
+                    data-discover="true">Deals</a>
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html"
+                    data-discover="true">About</a>
+                </nav>
               </div>
             </header>
             <main class="flex-1">
@@ -174,4 +188,5 @@
   <script src="../static/js/shared.js"></script>
   <script src="../static/js/categories.js"></script>
 </body>
+
 </html>
