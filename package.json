@@ -1,0 +1,12 @@
+{
+  "name": "prototype_4",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/css/app.css -o ./static/css/bundle.css --minify",
+    "watch:css": "tailwindcss -i ./static/css/app.css -o ./static/css/bundle.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "tailwindcss": "^4.2.4"
+  }
+}

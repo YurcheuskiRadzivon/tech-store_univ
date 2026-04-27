@@ -1,0 +1,43 @@
+/* Tailwind entry: run `npm run build:css` → bundle.css (do not edit bundle.css). */
+@import "./theme.css";
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-input-background: var(--input-background);
+}
+
+@layer base {
+  /*
+    Tailwind's .border only sets width; without a color, CSS uses currentColor (text color),
+    which reads as a harsh black outline on controls and cards. Default to theme border.
+    Explicit utilities like border-gray-200 still win (higher specificity than *).
+  */
+  *,
+  ::after,
+  ::before,
+  ::backdrop {
+    border-color: var(--color-border);
+  }
+}
+
+@source "../../templates/**/*.html";
+@source "../js/**/*.js";
