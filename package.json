@@ -2,7 +2,8 @@
   "name": "tech-store_univ",
   "private": true,
   "scripts": {
-    "build:css": "tailwindcss -i ./static/css/app.css -o ./static/css/bundle.css --minify"
+    "build:css": "tailwindcss -i ./static/css/app.css -o ./static/css/bundle.css --minify",
+    "build": "npm run build:css && node scripts/build.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.12",
