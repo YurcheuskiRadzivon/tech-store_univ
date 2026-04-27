@@ -67,3 +67,48 @@ function updateCartBadge() {
     badge.hidden = count === 0;
   });
 }
+
+function bindMobileNav() {
+  const toggle = document.getElementById("mobileNavToggle");
+  const nav = document.getElementById("mobileNav");
+  if (!toggle || !nav) {
+    return;
+  }
+
+  function setOpen(open) {
+    toggle.setAttribute("aria-expanded", String(open));
+    if (open) {
+      nav.removeAttribute("hidden");
+    } else {
+      nav.setAttribute("hidden", "");
+    }
+  }
+
+  toggle.addEventListener("click", () => {
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    setOpen(!open);
+  });
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      setOpen(false);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setOpen(false);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      setOpen(false);
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  bindMobileNav();
+});
+

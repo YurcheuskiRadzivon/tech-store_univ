@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../static/css/style.css" />
 </head>
+
 <body data-page="cart">
     <div id="container">
         <div class="tailwind css-uwf2km css-exq74d">
@@ -15,30 +17,55 @@
                     <div class="container mx-auto px-4 lg:px-8">
                         <div class="flex h-16 items-center justify-between">
                             <a class="flex items-center gap-2" href="./index.html">
-                                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
+                                <div
+                                    class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
                                     <span class="font-bold text-white text-xl">T</span>
                                 </div>
                                 <span class="hidden font-bold text-xl sm:inline-block">TechStore</span>
                             </a>
                             <nav class="hidden md:flex items-center gap-8">
-                                <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html">Products</a>
-                                <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html">Categories</a>
-                                <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html">Deals</a>
-                                <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html">About</a>
+                                <a class="text-gray-700 hover:text-blue-600 transition-colors"
+                                    href="./index.html">Products</a>
+                                <a class="text-gray-700 hover:text-blue-600 transition-colors"
+                                    href="./categories.html">Categories</a>
+                                <a class="text-gray-700 hover:text-blue-600 transition-colors"
+                                    href="./deals.html">Deals</a>
+                                <a class="text-gray-700 hover:text-blue-600 transition-colors"
+                                    href="./about.html">About</a>
                             </nav>
                             <div class="flex items-center gap-4">
-                                <button aria-label="Search" class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
-                                    <img src="../static/icons/search-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                                <button aria-label="Search"
+                                    class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
+                                    <img src="../static/icons/search-gray-700.svg" alt="" class="h-5 w-5"
+                                        aria-hidden="true" />
                                 </button>
-                                <a class="relative flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors" aria-label="Shopping cart" href="./cart.html">
-                                    <img src="../static/icons/shopping-cart-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
-                                    <span data-cart-count class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white" hidden>0</span>
+                                <a class="relative flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
+                                    aria-label="Shopping cart" href="./cart.html">
+                                    <img src="../static/icons/shopping-cart-gray-700.svg" alt="" class="h-5 w-5"
+                                        aria-hidden="true" />
+                                    <span data-cart-count
+                                        class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white"
+                                        hidden>0</span>
                                 </a>
-                                <button aria-label="Menu" class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors md:hidden">
-                                    <img src="../static/icons/menu-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                                <button id="mobileNavToggle" type="button" aria-label="Menu" aria-expanded="false"
+                                    aria-controls="mobileNav"
+                                    class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors md:hidden">
+                                    <img src="../static/icons/menu-gray-700.svg" alt="" class="h-5 w-5"
+                                        aria-hidden="true" />
                                 </button>
                             </div>
                         </div>
+                        <nav id="mobileNav" class="flex flex-col gap-4 border-t border-gray-200 pb-4 pt-4 md:hidden"
+                            hidden aria-label="Main navigation">
+                            <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html"
+                                data-discover="true">Products</a>
+                            <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html"
+                                data-discover="true">Categories</a>
+                            <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html"
+                                data-discover="true">Deals</a>
+                            <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html"
+                                data-discover="true">About</a>
+                        </nav>
                     </div>
                 </header>
                 <main class="flex-1">
@@ -47,13 +74,14 @@
                             <div class="text-center">
                                 <h1 class="mb-4 text-3xl font-bold">Your Cart is Empty</h1>
                                 <p class="mb-8 text-gray-600">Add some amazing products to get started!</p>
-                                <a class="inline-block rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 transition-colors" href="./index.html">Continue Shopping</a>
+                                <a class="inline-block rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700 transition-colors"
+                                    href="./index.html">Continue Shopping</a>
                             </div>
                         </div>
                         <div id="cartLayout" class="cart-layout container mx-auto px-4 lg:px-8 py-8 hidden" hidden>
                             <h1 class="mb-8 text-3xl font-bold">Shopping Cart</h1>
                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                                <div class="lg:col-span-2 space-y-4" id="cartItems"></div>                             
+                                <div class="lg:col-span-2 space-y-4" id="cartItems"></div>
                                 <div class="lg:col-span-1">
                                     <div class="sticky top-24 space-y-4">
                                         <div class="rounded-lg border border-gray-200 bg-white p-6">
@@ -63,9 +91,12 @@
                                                     <span class="text-gray-600">Subtotal</span>
                                                     <span id="summarySubtotal" class="font-semibold">$0.00</span>
                                                 </div>
-                                                <div id="summaryDiscountRow" class="flex items-center justify-between text-sm hidden" hidden>
-                                                    <span id="summaryDiscountLabel" class="text-green-600">Discount</span>
-                                                    <span id="summaryDiscount" class="font-semibold text-green-600">$0.00</span>
+                                                <div id="summaryDiscountRow"
+                                                    class="flex items-center justify-between text-sm hidden" hidden>
+                                                    <span id="summaryDiscountLabel"
+                                                        class="text-green-600">Discount</span>
+                                                    <span id="summaryDiscount"
+                                                        class="font-semibold text-green-600">$0.00</span>
                                                 </div>
                                                 <div class="flex items-center justify-between text-sm">
                                                     <span class="text-gray-600">Tax (8%)</span>
@@ -73,39 +104,67 @@
                                                 </div>
                                                 <div class="border-t pt-3 flex items-center justify-between">
                                                     <span class="font-semibold">Total</span>
-                                                    <span id="summaryTotal" class="font-bold text-xl text-blue-600">$0.00</span>
+                                                    <span id="summaryTotal"
+                                                        class="font-bold text-xl text-blue-600">$0.00</span>
                                                 </div>
                                             </div>
                                             <div class="mb-6">
-                                                <label class="mb-2 block text-sm font-semibold" for="promoInput">Promo Code</label>
+                                                <label class="mb-2 block text-sm font-semibold" for="promoInput">Promo
+                                                    Code</label>
                                                 <div class="flex gap-2">
-                                                    <input id="promoInput" type="text" placeholder="Enter code" class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
-                                                    <button id="promoButton" type="button" class="rounded-lg bg-gray-800 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition-colors disabled:opacity-50">Apply</button>
+                                                    <input id="promoInput" type="text" placeholder="Enter code"
+                                                        class="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20" />
+                                                    <button id="promoButton" type="button"
+                                                        class="rounded-lg bg-gray-800 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition-colors disabled:opacity-50">Apply</button>
                                                 </div>
-                                                <p id="promoHint" class="mt-2 text-xs text-gray-500">Try code "SAVE10" for 10% off</p>
+                                                <p id="promoHint" class="mt-2 text-xs text-gray-500">Try code "SAVE10"
+                                                    for 10% off</p>
                                                 <p id="promoMessage" class="mt-2 text-xs hidden" hidden></p>
-                                            </div>                                  
-                                            <button id="checkoutButton" type="button" class="w-full rounded-lg bg-blue-600 px-6 py-4 font-semibold text-white hover:bg-blue-700 transition-colors">
+                                            </div>
+                                            <button id="checkoutButton" type="button"
+                                                class="w-full rounded-lg bg-blue-600 px-6 py-4 font-semibold text-white hover:bg-blue-700 transition-colors">
                                                 Proceed to Checkout
                                             </button>
                                         </div>
                                         <div class="rounded-lg border border-gray-200 bg-white p-6">
                                             <h3 class="mb-4 flex items-center gap-2 font-semibold text-gray-800">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-blue-600"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="h-5 w-5 text-blue-600">
+                                                    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2">
+                                                    </path>
+                                                    <path d="M15 18H9"></path>
+                                                    <path
+                                                        d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14">
+                                                    </path>
+                                                    <circle cx="17" cy="18" r="2"></circle>
+                                                    <circle cx="7" cy="18" r="2"></circle>
+                                                </svg>
                                                 Shipping Information
                                             </h3>
                                             <div class="space-y-3 text-sm">
                                                 <div class="flex items-start gap-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-gray-400 mt-0.5"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                        class="h-4 w-4 text-gray-400 mt-0.5">
+                                                        <path
+                                                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0">
+                                                        </path>
+                                                        <circle cx="12" cy="10" r="3"></circle>
+                                                    </svg>
                                                     <div>
                                                         <p class="font-medium">Delivery Address</p>
-                                                        <p class="text-gray-600">123 Tech Street, San Francisco, CA 94105</p>
+                                                        <p class="text-gray-600">123 Tech Street, San Francisco, CA
+                                                            94105</p>
                                                     </div>
                                                 </div>
                                                 <div class="border-t pt-3">
                                                     <p class="font-medium text-gray-800">Estimated Delivery</p>
                                                     <p class="text-gray-600">3-5 business days</p>
-                                                    <p class="text-green-600 mt-1 font-medium">Free shipping on orders over $50</p>
+                                                    <p class="text-green-600 mt-1 font-medium">Free shipping on orders
+                                                        over $50</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,39 +179,56 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             <div>
                                 <div class="flex items-center gap-2 mb-4">
-                                    <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
+                                    <div
+                                        class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
                                         <span class="font-bold text-white text-xl">T</span>
                                     </div>
                                     <span class="font-bold text-xl">TechStore</span>
                                 </div>
-                                <p class="text-sm text-gray-600 mb-4">Your trusted destination for premium electronics. Quality products, competitive prices.</p>
+                                <p class="text-sm text-gray-600 mb-4">Your trusted destination for premium electronics.
+                                    Quality products, competitive prices.</p>
                                 <div class="flex gap-3">
-                                    <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Facebook"><img src="../static/icons/facebook-gray-700.svg" alt="" class="h-4 w-4" /></a>
-                                    <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Twitter"><img src="../static/icons/twitter-gray-700.svg" alt="" class="h-4 w-4" /></a>
-                                    <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Instagram"><img src="../static/icons/instagram-gray-700.svg" alt="" class="h-4 w-4" /></a>
+                                    <a href="#"
+                                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                        aria-label="Facebook"><img src="../static/icons/facebook-gray-700.svg" alt=""
+                                            class="h-4 w-4" /></a>
+                                    <a href="#"
+                                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                        aria-label="Twitter"><img src="../static/icons/twitter-gray-700.svg" alt=""
+                                            class="h-4 w-4" /></a>
+                                    <a href="#"
+                                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                                        aria-label="Instagram"><img src="../static/icons/instagram-gray-700.svg" alt=""
+                                            class="h-4 w-4" /></a>
                                 </div>
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-4">Quick Links</h3>
                                 <ul class="space-y-2 text-sm text-gray-600">
-                                    <li><a class="hover:text-blue-600 transition-colors" href="./index.html">Shop All Products</a></li>
-                                    <li><a class="hover:text-blue-600 transition-colors" href="./deals.html">Special Deals</a></li>
-                                    <li><a class="hover:text-blue-600 transition-colors" href="./about.html">About Us</a></li>
+                                    <li><a class="hover:text-blue-600 transition-colors" href="./index.html">Shop All
+                                            Products</a></li>
+                                    <li><a class="hover:text-blue-600 transition-colors" href="./deals.html">Special
+                                            Deals</a></li>
+                                    <li><a class="hover:text-blue-600 transition-colors" href="./about.html">About
+                                            Us</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-4">Customer Service</h3>
                                 <ul class="space-y-2 text-sm text-gray-600">
                                     <li><a href="#" class="hover:text-blue-600 transition-colors">Shipping Info</a></li>
-                                    <li><a href="#" class="hover:text-blue-600 transition-colors">Returns & Exchanges</a></li>
+                                    <li><a href="#" class="hover:text-blue-600 transition-colors">Returns &
+                                            Exchanges</a></li>
                                     <li><a href="#" class="hover:text-blue-600 transition-colors">FAQ</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="font-semibold mb-4">Newsletter</h3>
                                 <form class="space-y-2">
-                                    <input type="email" placeholder="Enter your email" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-600 focus:outline-none" />
-                                    <button type="submit" class="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition-colors">Subscribe</button>
+                                    <input type="email" placeholder="Enter your email"
+                                        class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-600 focus:outline-none" />
+                                    <button type="submit"
+                                        class="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition-colors">Subscribe</button>
                                 </form>
                             </div>
                         </div>
@@ -164,6 +240,9 @@
             </div>
         </div>
     </div>
-        <script src="../static/js/cart.js"></script>
+    <script src="../static/js/data/products.js"></script>
+    <script src="../static/js/shared.js"></script>
+    <script src="../static/js/cart.js"></script>
 </body>
+
 </html>
