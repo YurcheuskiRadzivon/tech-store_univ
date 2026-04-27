@@ -1,279 +1,416 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>E-commerce Website Design</title>
-    <link rel="stylesheet" href="../static/css/bundle.css"/>
-    <link rel="stylesheet" href="../static/css/style.css"/>
-  </head>
-  <body data-page="catalog">
-    <div id="container">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-commerce Website Design</title>
+  <link rel="stylesheet" href="../static/css/bundle.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+<body data-page="catalog">
+  <div id="container">
+    <div>
       <div>
-        <div>
-          <div class="tailwind css-uwf2km css-exq74d">
-            <div class="flex min-h-screen flex-col">
-              <header class="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
-                <div class="container mx-auto px-4 lg:px-8">
-                  <div class="flex h-16 items-center justify-between">
-                    <a class="flex items-center gap-2" href="./index.html" data-discover="true">
-                      <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
-                        <span class="font-bold text-white text-xl">T</span>
-                      </div>
-                      <span class="hidden font-bold text-xl sm:inline-block">TechStore</span>
+        <div class="tailwind css-uwf2km css-exq74d">
+          <div class="flex min-h-screen flex-col">
+            <header class="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+              <div class="container mx-auto px-4 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                  <a class="flex items-center gap-2" href="./index.html" data-discover="true">
+                    <div
+                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
+                      <span class="font-bold text-white text-xl">T</span>
+                    </div>
+                    <span class="hidden font-bold text-xl sm:inline-block">TechStore</span>
+                  </a>
+                  <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html"
+                      data-discover="true">Products</a>
+                    <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html"
+                      data-discover="true">Categories</a>
+                    <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html"
+                      data-discover="true">Deals</a>
+                    <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html"
+                      data-discover="true">About</a>
+                  </nav>
+                  <div class="flex items-center gap-4">
+                    <button aria-label="Search"
+                      class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
+                      <img src="../static/icons/search-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                    </button>
+                    <a class="relative flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors"
+                      aria-label="Shopping cart" href="./cart.html" data-discover="true">
+                      <img src="../static/icons/shopping-cart-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                      <span data-cart-count
+                        class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white"
+                        hidden>0</span>
                     </a>
-                    <nav class="hidden md:flex items-center gap-8">
-                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html" data-discover="true">Products</a>
-                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html" data-discover="true">Categories</a>
-                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html" data-discover="true">Deals</a>
-                      <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html" data-discover="true">About</a>
-                    </nav>
-                    <div class="flex items-center gap-4">
-                      <button aria-label="Search" class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors">
-                        <img src="../static/icons/search-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true"/>
+                    <button id="mobileNavToggle" type="button" aria-label="Menu" aria-expanded="false"
+                      aria-controls="mobileNav"
+                      class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors md:hidden">
+                      <img src="../static/icons/menu-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+                <nav id="mobileNav" class="flex flex-col gap-4 border-t border-gray-200 pb-4 pt-4 md:hidden" hidden
+                  aria-label="Main navigation">
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./index.html"
+                    data-discover="true">Products</a>
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./categories.html"
+                    data-discover="true">Categories</a>
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./deals.html"
+                    data-discover="true">Deals</a>
+                  <a class="text-gray-700 hover:text-blue-600 transition-colors" href="./about.html"
+                    data-discover="true">About</a>
+                </nav>
+              </div>
+            </header>
+            <main class="flex-1">
+              <div class="min-h-screen bg-gray-50">
+                <div class="container mx-auto px-4 lg:px-8 py-8">
+                  <div class="mb-8">
+                    <h1 class="mb-2">Premium Electronics</h1>
+                    <p class="text-gray-600">
+                      Discover our curated collection of high-quality tech
+                      products
+                    </p>
+                  </div>
+                  <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div class="flex items-center gap-2">
+                      <button id="mobileFiltersToggle" type="button"
+                        class="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm lg:hidden hover:bg-gray-50 transition-colors"
+                        aria-expanded="false" aria-controls="filtersPanel">
+                        <img src="../static/icons/sliders-horizontal-gray-700.svg" alt="" class="h-4 w-4"
+                          aria-hidden="true" />Filters
                       </button>
-                      <a class="relative flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors" aria-label="Shopping cart" href="./cart.html" data-discover="true">
-                        <img src="../static/icons/shopping-cart-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true"/>
-                        <span data-cart-count class="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-xs text-white" hidden>0</span>
-                      </a>
-                      <button aria-label="Menu" class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 transition-colors md:hidden">
-                        <img src="../static/icons/menu-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true"/>
+                      <p class="text-sm text-gray-600">
+                        <span id="productCount">0</span> products
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-sm text-gray-600">Sort by:</span>
+                      <button id="sortTrigger" type="button" role="combobox" aria-label="Sort products"
+                        aria-expanded="false" aria-autocomplete="none" aria-controls="sortMenu" dir="ltr"
+                        data-state="closed" data-slot="select-trigger" data-size="default"
+                        class="border-input data-[placeholder]:text-muted-foreground [&_img]:pointer-events-none [&_img]:shrink-0 flex items-center justify-between gap-2 rounded-md border px-3 py-2 text-sm whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 w-[180px] bg-white">
+                        <span id="sortValue" data-slot="select-value" class="select-value-text">Name (A-Z)</span>
+                        <img id="sortChevron" src="../static/icons/chevron-down-gray-400.svg" alt=""
+                          class="size-4 opacity-50" aria-hidden="true" />
                       </button>
                     </div>
                   </div>
-                </div>
-              </header>
-              <main class="flex-1">
-                <div class="min-h-screen bg-gray-50">
-                  <div class="container mx-auto px-4 lg:px-8 py-8">
-                    <div class="mb-8">
-                      <h1 class="mb-2">Premium Electronics</h1>
-                      <p class="text-gray-600">
-                        Discover our curated collection of high-quality tech
-                        products
-                      </p>
-                    </div>
-                    <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                      <div class="flex items-center gap-2">
-                        <button id="mobileFiltersToggle" type="button" class="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm lg:hidden hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="filtersPanel">
-                          <img src="../static/icons/sliders-horizontal-gray-700.svg" alt="" class="h-4 w-4" aria-hidden="true"/>Filters
-                        </button>
-                        <p class="text-sm text-gray-600">
-                          <span id="productCount">0</span> products
-                        </p>
-                      </div>
-                      <div class="flex items-center gap-2">
-                        <span class="text-sm text-gray-600">Sort by:</span>
-                        <button id="sortTrigger" type="button" role="combobox" aria-label="Sort products" aria-expanded="false" aria-autocomplete="none" aria-controls="sortMenu" dir="ltr" data-state="closed" data-slot="select-trigger" data-size="default" class="border-input data-[placeholder]:text-muted-foreground [&_img]:pointer-events-none [&_img]:shrink-0 flex items-center justify-between gap-2 rounded-md border px-3 py-2 text-sm whitespace-nowrap transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 w-[180px] bg-white">
-                          <span id="sortValue" data-slot="select-value" class="select-value-text">Name (A-Z)</span>
-                          <img id="sortChevron" src="../static/icons/chevron-down-gray-400.svg" alt="" class="size-4 opacity-50" aria-hidden="true"/>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="flex gap-8">
-                      <aside class="hidden lg:block w-64 flex-shrink-0">
-                        <div class="sticky top-24 rounded-lg border border-gray-200 bg-white p-6">
-                          <h2 class="mb-6 flex items-center gap-2 font-semibold">
-                            <img src="../static/icons/sliders-horizontal-gray-700.svg" alt="" class="h-5 w-5" aria-hidden="true"/>Filters
-                          </h2>
-                          <div class="space-y-6">
-                            <div>
-                              <h3 class="mb-4 font-semibold">Rating</h3>
-                              <div class="space-y-3">
-                                <div class="flex items-center space-x-2">
-                                  <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-rating-threshold="5" data-slot="checkbox" class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="rating-5"></button>
-                                  <label data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 cursor-pointer text-sm font-normal" for="rating-5">5+ Stars</label>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                  <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-rating-threshold="4" data-slot="checkbox" class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="rating-4"></button>
-                                  <label data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 cursor-pointer text-sm font-normal" for="rating-4">4+ Stars</label>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                  <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-rating-threshold="3" data-slot="checkbox" class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="rating-3"></button>
-                                  <label data-slot="label" class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 cursor-pointer text-sm font-normal" for="rating-3">3+ Stars</label>
-                                </div>
+                  <div class="flex gap-8">
+                    <aside class="hidden lg:block w-64 flex-shrink-0">
+                      <div class="sticky top-24 rounded-lg border border-gray-200 bg-white p-6">
+                        <h2 class="mb-6 flex items-center gap-2 font-semibold">
+                          <img src="../static/icons/sliders-horizontal-gray-700.svg" alt="" class="h-5 w-5"
+                            aria-hidden="true" />Filters
+                        </h2>
+                        <div class="space-y-6">
+                          <div>
+                            <h3 class="mb-4 font-semibold">Rating</h3>
+                            <div class="space-y-3">
+                              <div class="flex items-center space-x-2">
+                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked"
+                                  data-rating-threshold="5" data-slot="checkbox"
+                                  class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                                  id="rating-5"></button>
+                                <label data-slot="label"
+                                  class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 cursor-pointer text-sm font-normal"
+                                  for="rating-5">5+ Stars</label>
+                              </div>
+                              <div class="flex items-center space-x-2">
+                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked"
+                                  data-rating-threshold="4" data-slot="checkbox"
+                                  class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                                  id="rating-4"></button>
+                                <label data-slot="label"
+                                  class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 cursor-pointer text-sm font-normal"
+                                  for="rating-4">4+ Stars</label>
+                              </div>
+                              <div class="flex items-center space-x-2">
+                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked"
+                                  data-rating-threshold="3" data-slot="checkbox"
+                                  class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                                  id="rating-3"></button>
+                                <label data-slot="label"
+                                  class="flex items-center gap-2 select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 cursor-pointer text-sm font-normal"
+                                  for="rating-3">3+ Stars</label>
                               </div>
                             </div>
-                            <div>
-                              <h3 class="mb-4 font-semibold">Price Range</h3>
-                              <div class="space-y-4">
-                                <span dir="ltr" data-orientation="horizontal" aria-disabled="false" data-slot="slider" data-price-slider class="slider-root relative flex touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col w-full"><span data-orientation="horizontal" data-slot="slider-track" data-price-slider-track class="bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"><span data-orientation="horizontal" data-slot="slider-range" data-price-slider-range class="slider-range-full bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"></span></span><span class="slider-thumb-wrap slider-thumb-start" data-price-thumb-wrap="min"><span role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal" data-orientation="horizontal" tabindex="0" data-slot="slider-thumb" data-price-thumb="min" class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50" data-radix-collection-item="" aria-label="Minimum" aria-valuenow="0"></span></span><span class="slider-thumb-wrap slider-thumb-end" data-price-thumb-wrap="max"><span role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal" data-orientation="horizontal" tabindex="0" data-slot="slider-thumb" data-price-thumb="max" class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50" data-radix-collection-item="" aria-label="Maximum" aria-valuenow="3000"></span></span></span>
-                                <div class="flex items-center justify-between text-sm">
-                                  <span class="text-gray-600" id="priceMinValue" data-catalog-price="min">$0</span><span class="text-gray-600" id="priceMaxValue" data-catalog-price="max">$3000</span>
-                                </div>
-                              </div>
-                            </div>
-                            <button id="clearFilters" type="button" data-clear-filters class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm hover:bg-gray-50 transition-colors">
-                              Clear All Filters
-                            </button>
                           </div>
-                        </div>
-                      </aside>
-                      <div class="flex-1">
-                        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        </div>
-                        <div id="emptyState" class="hidden py-12 text-center text-gray-600">
-                          No products found
-                        </div>
-                      </div>
-                    </div>
-                    <div id="filtersPanel" class="fixed inset-0 z-[100] lg:hidden" data-filters-open="false" aria-hidden="true">
-                      <div class="absolute inset-0 bg-black/40" data-filters-backdrop></div>
-                      <div role="dialog" aria-modal="true" aria-labelledby="filtersSheetTitle" data-slot="sheet-content" tabindex="-1" class="pointer-events-auto absolute inset-y-0 left-0 z-10 flex h-full w-[min(100vw-2rem,24rem)] flex-col border-r border-gray-200 bg-white shadow-xl">
-                        <div class="flex shrink-0 items-center justify-between gap-2 border-b border-gray-100 p-4">
-                          <h2 id="filtersSheetTitle" class="font-semibold">
-                            Filters
-                          </h2>
-                          <button type="button" id="filtersClose" class="flex h-9 w-9 items-center justify-center rounded-md text-gray-600 hover:bg-gray-100" aria-label="Close filters">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5" aria-hidden="true">
-                              <path d="M18 6 6 18"></path>
-                              <path d="m6 6 12 12"></path>
-                            </svg>
+                          <div>
+                            <h3 class="mb-4 font-semibold">Price Range</h3>
+                            <div class="space-y-4">
+                              <span dir="ltr" data-orientation="horizontal" aria-disabled="false" data-slot="slider"
+                                data-price-slider
+                                class="slider-root relative flex touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col w-full"><span
+                                  data-orientation="horizontal" data-slot="slider-track" data-price-slider-track
+                                  class="bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"><span
+                                    data-orientation="horizontal" data-slot="slider-range" data-price-slider-range
+                                    class="slider-range-full bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"></span></span><span
+                                  class="slider-thumb-wrap slider-thumb-start" data-price-thumb-wrap="min"><span
+                                    role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal"
+                                    data-orientation="horizontal" tabindex="0" data-slot="slider-thumb"
+                                    data-price-thumb="min"
+                                    class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+                                    data-radix-collection-item="" aria-label="Minimum"
+                                    aria-valuenow="0"></span></span><span class="slider-thumb-wrap slider-thumb-end"
+                                  data-price-thumb-wrap="max"><span role="slider" aria-valuemin="0" aria-valuemax="3000"
+                                    aria-orientation="horizontal" data-orientation="horizontal" tabindex="0"
+                                    data-slot="slider-thumb" data-price-thumb="max"
+                                    class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+                                    data-radix-collection-item="" aria-label="Maximum"
+                                    aria-valuenow="3000"></span></span></span>
+                              <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-600" id="priceMinValue" data-catalog-price="min">$0</span><span
+                                  class="text-gray-600" id="priceMaxValue" data-catalog-price="max">$3000</span>
+                              </div>
+                            </div>
+                          </div>
+                          <button id="clearFilters" type="button" data-clear-filters
+                            class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm hover:bg-gray-50 transition-colors">
+                            Clear All Filters
                           </button>
                         </div>
-                        <div class="min-h-0 flex-1 overflow-y-auto px-4 py-4">
-                          <div class="space-y-6">
-                            <div>
-                              <h3 class="mb-4 font-semibold">Rating</h3>
-                              <div class="space-y-3">
-                                <div class="flex items-center space-x-2">
-                                  <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-rating-threshold="5" data-slot="checkbox" class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="rating-5-mobile"></button>
-                                  <label data-slot="label" class="flex cursor-pointer items-center gap-2 text-sm font-normal select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50" for="rating-5-mobile">5+ Stars</label>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                  <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-rating-threshold="4" data-slot="checkbox" class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="rating-4-mobile"></button>
-                                  <label data-slot="label" class="flex cursor-pointer items-center gap-2 text-sm font-normal select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50" for="rating-4-mobile">4+ Stars</label>
-                                </div>
-                                <div class="flex items-center space-x-2">
-                                  <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" data-rating-threshold="3" data-slot="checkbox" class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50" id="rating-3-mobile"></button>
-                                  <label data-slot="label" class="flex cursor-pointer items-center gap-2 text-sm font-normal select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50" for="rating-3-mobile">3+ Stars</label>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 class="mb-4 font-semibold">Price Range</h3>
-                              <div class="space-y-4">
-                                <span dir="ltr" data-orientation="horizontal" aria-disabled="false" data-slot="slider" data-price-slider class="slider-root relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col"><span data-orientation="horizontal" data-slot="slider-track" data-price-slider-track class="bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"><span data-orientation="horizontal" data-slot="slider-range" data-price-slider-range class="slider-range-full bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"></span></span><span class="slider-thumb-wrap slider-thumb-start" data-price-thumb-wrap="min"><span role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal" data-orientation="horizontal" tabindex="0" data-slot="slider-thumb" data-price-thumb="min" class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50" aria-label="Minimum" aria-valuenow="0"></span></span><span class="slider-thumb-wrap slider-thumb-end" data-price-thumb-wrap="max"><span role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal" data-orientation="horizontal" tabindex="0" data-slot="slider-thumb" data-price-thumb="max" class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50" aria-label="Maximum" aria-valuenow="3000"></span></span></span>
-                                <div class="flex items-center justify-between text-sm">
-                                  <span class="text-gray-600" data-catalog-price="min">$0</span><span class="text-gray-600" data-catalog-price="max">$3000</span>
-                                </div>
-                              </div>
-                            </div>
-                            <button type="button" data-clear-filters class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm hover:bg-gray-50 transition-colors">
-                              Clear All Filters
-                            </button>
-                          </div>
-                        </div>
+                      </div>
+                    </aside>
+                    <div class="flex-1">
+                      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                      </div>
+                      <div id="emptyState" class="hidden py-12 text-center text-gray-600">
+                        No products found
                       </div>
                     </div>
                   </div>
-                </div>
-              </main>
-              <footer class="w-full border-t bg-gray-50">
-                <div class="container mx-auto px-4 lg:px-8 py-12">
-                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div>
-                      <div class="flex items-center gap-2 mb-4">
-                        <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
-                          <span class="font-bold text-white text-xl">T</span>
-                        </div>
-                        <span class="font-bold text-xl">TechStore</span>
-                      </div>
-                      <p class="text-sm text-gray-600 mb-4">
-                        Your trusted destination for premium electronics and
-                        tech accessories. Quality products, competitive prices,
-                        exceptional service.
-                      </p>
-                      <div class="flex gap-3">
-                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Facebook"><img src="../static/icons/facebook-gray-700.svg" alt="" class="h-4 w-4" aria-hidden="true"/></a>
-                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Twitter"><img src="../static/icons/twitter-gray-700.svg" alt="" class="h-4 w-4" aria-hidden="true"/></a>
-                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="Instagram"><img src="../static/icons/instagram-gray-700.svg" alt="" class="h-4 w-4" aria-hidden="true"/></a>
-                        <a href="#" class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors" aria-label="YouTube"><img src="../static/icons/youtube-gray-700.svg" alt="" class="h-4 w-4" aria-hidden="true"/></a>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 class="font-semibold mb-4">Quick Links</h3>
-                      <ul class="space-y-2 text-sm">
-                        <li>
-                          <a class="text-gray-600 hover:text-blue-600 transition-colors" href="./index.html" data-discover="true">Shop All Products</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-blue-600 transition-colors" href="./deals.html" data-discover="true">Special Deals</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-blue-600 transition-colors" href="./about.html" data-discover="true">About Us</a>
-                        </li>
-                        <li>
-                          <a class="text-gray-600 hover:text-blue-600 transition-colors" href="#" data-discover="true">Contact Support</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 class="font-semibold mb-4">Customer Service</h3>
-                      <ul class="space-y-2 text-sm">
-                        <li>
-                          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Shipping Information</a>
-                        </li>
-                        <li>
-                          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Returns &amp; Exchanges</a>
-                        </li>
-                        <li>
-                          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">FAQ</a>
-                        </li>
-                        <li>
-                          <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Track Order</a>
-                        </li>
-                      </ul>
-                      <div class="mt-4 text-sm">
-                        <p class="text-gray-600 mb-1">Customer Support:</p>
-                        <p class="font-semibold">1-800-TECH-SHOP</p>
-                        <p class="text-gray-600">support@techstore.com</p>
-                      </div>
-                    </div>
-                    <div>
-                      <h3 class="font-semibold mb-4">Newsletter</h3>
-                      <p class="text-sm text-gray-600 mb-4">
-                        Subscribe to get special offers, free giveaways, and
-                        updates.
-                      </p>
-                      <form class="space-y-2">
-                        <input type="email" placeholder="Enter your email" class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"/><button type="submit" class="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition-colors">
-                          Subscribe
+                  <div id="filtersPanel" class="fixed inset-0 z-[100] lg:hidden" data-filters-open="false"
+                    aria-hidden="true">
+                    <div class="absolute inset-0 bg-black/40" data-filters-backdrop></div>
+                    <div role="dialog" aria-modal="true" aria-labelledby="filtersSheetTitle" data-slot="sheet-content"
+                      tabindex="-1"
+                      class="pointer-events-auto absolute inset-y-0 left-0 z-10 flex h-full w-[min(100vw-2rem,24rem)] flex-col border-r border-gray-200 bg-white shadow-xl">
+                      <div class="flex shrink-0 items-center justify-between gap-2 border-b border-gray-100 p-4">
+                        <h2 id="filtersSheetTitle" class="font-semibold">
+                          Filters
+                        </h2>
+                        <button type="button" id="filtersClose"
+                          class="flex h-9 w-9 items-center justify-center rounded-md text-gray-600 hover:bg-gray-100"
+                          aria-label="Close filters">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="h-5 w-5" aria-hidden="true">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                          </svg>
                         </button>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="mt-12 border-t pt-8 text-center text-sm text-gray-600">
-                    <p>© 2026 TechStore. All rights reserved.</p>
-                    <div class="mt-2 flex justify-center gap-4">
-                      <a href="#" class="hover:text-blue-600 transition-colors">Privacy Policy</a><a href="#" class="hover:text-blue-600 transition-colors">Terms of Service</a><a href="#" class="hover:text-blue-600 transition-colors">Cookie Policy</a>
+                      </div>
+                      <div class="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+                        <div class="space-y-6">
+                          <div>
+                            <h3 class="mb-4 font-semibold">Rating</h3>
+                            <div class="space-y-3">
+                              <div class="flex items-center space-x-2">
+                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked"
+                                  data-rating-threshold="5" data-slot="checkbox"
+                                  class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                                  id="rating-5-mobile"></button>
+                                <label data-slot="label"
+                                  class="flex cursor-pointer items-center gap-2 text-sm font-normal select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+                                  for="rating-5-mobile">5+ Stars</label>
+                              </div>
+                              <div class="flex items-center space-x-2">
+                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked"
+                                  data-rating-threshold="4" data-slot="checkbox"
+                                  class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                                  id="rating-4-mobile"></button>
+                                <label data-slot="label"
+                                  class="flex cursor-pointer items-center gap-2 text-sm font-normal select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+                                  for="rating-4-mobile">4+ Stars</label>
+                              </div>
+                              <div class="flex items-center space-x-2">
+                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked"
+                                  data-rating-threshold="3" data-slot="checkbox"
+                                  class="peer bg-input-background dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50"
+                                  id="rating-3-mobile"></button>
+                                <label data-slot="label"
+                                  class="flex cursor-pointer items-center gap-2 text-sm font-normal select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+                                  for="rating-3-mobile">3+ Stars</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 class="mb-4 font-semibold">Price Range</h3>
+                            <div class="space-y-4">
+                              <span dir="ltr" data-orientation="horizontal" aria-disabled="false" data-slot="slider"
+                                data-price-slider
+                                class="slider-root relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col"><span
+                                  data-orientation="horizontal" data-slot="slider-track" data-price-slider-track
+                                  class="bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-4 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"><span
+                                    data-orientation="horizontal" data-slot="slider-range" data-price-slider-range
+                                    class="slider-range-full bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"></span></span><span
+                                  class="slider-thumb-wrap slider-thumb-start" data-price-thumb-wrap="min"><span
+                                    role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal"
+                                    data-orientation="horizontal" tabindex="0" data-slot="slider-thumb"
+                                    data-price-thumb="min"
+                                    class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+                                    aria-label="Minimum" aria-valuenow="0"></span></span><span
+                                  class="slider-thumb-wrap slider-thumb-end" data-price-thumb-wrap="max"><span
+                                    role="slider" aria-valuemin="0" aria-valuemax="3000" aria-orientation="horizontal"
+                                    data-orientation="horizontal" tabindex="0" data-slot="slider-thumb"
+                                    data-price-thumb="max"
+                                    class="border-primary bg-background ring-ring/50 block size-4 shrink-0 rounded-full border shadow-sm transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50"
+                                    aria-label="Maximum" aria-valuenow="3000"></span></span></span>
+                              <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-600" data-catalog-price="min">$0</span><span
+                                  class="text-gray-600" data-catalog-price="max">$3000</span>
+                              </div>
+                            </div>
+                          </div>
+                          <button type="button" data-clear-filters
+                            class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm hover:bg-gray-50 transition-colors">
+                            Clear All Filters
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </footer>
-            </div>
+              </div>
+            </main>
+            <footer class="w-full border-t bg-gray-50">
+              <div class="container mx-auto px-4 lg:px-8 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <div>
+                    <div class="flex items-center gap-2 mb-4">
+                      <div
+                        class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-purple-600">
+                        <span class="font-bold text-white text-xl">T</span>
+                      </div>
+                      <span class="font-bold text-xl">TechStore</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">
+                      Your trusted destination for premium electronics and
+                      tech accessories. Quality products, competitive prices,
+                      exceptional service.
+                    </p>
+                    <div class="flex gap-3">
+                      <a href="#"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                        aria-label="Facebook"><img src="../static/icons/facebook-gray-700.svg" alt="" class="h-4 w-4"
+                          aria-hidden="true" /></a>
+                      <a href="#"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                        aria-label="Twitter"><img src="../static/icons/twitter-gray-700.svg" alt="" class="h-4 w-4"
+                          aria-hidden="true" /></a>
+                      <a href="#"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                        aria-label="Instagram"><img src="../static/icons/instagram-gray-700.svg" alt="" class="h-4 w-4"
+                          aria-hidden="true" /></a>
+                      <a href="#"
+                        class="flex h-9 w-9 items-center justify-center rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition-colors"
+                        aria-label="YouTube"><img src="../static/icons/youtube-gray-700.svg" alt="" class="h-4 w-4"
+                          aria-hidden="true" /></a>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <a class="text-gray-600 hover:text-blue-600 transition-colors" href="./index.html"
+                          data-discover="true">Shop All Products</a>
+                      </li>
+                      <li>
+                        <a class="text-gray-600 hover:text-blue-600 transition-colors" href="./deals.html"
+                          data-discover="true">Special Deals</a>
+                      </li>
+                      <li>
+                        <a class="text-gray-600 hover:text-blue-600 transition-colors" href="./about.html"
+                          data-discover="true">About Us</a>
+                      </li>
+                      <li>
+                        <a class="text-gray-600 hover:text-blue-600 transition-colors" href="#"
+                          data-discover="true">Contact Support</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2 text-sm">
+                      <li>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Shipping Information</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Returns &amp;
+                          Exchanges</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">FAQ</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">Track Order</a>
+                      </li>
+                    </ul>
+                    <div class="mt-4 text-sm">
+                      <p class="text-gray-600 mb-1">Customer Support:</p>
+                      <p class="font-semibold">1-800-TECH-SHOP</p>
+                      <p class="text-gray-600">support@techstore.com</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold mb-4">Newsletter</h3>
+                    <p class="text-sm text-gray-600 mb-4">
+                      Subscribe to get special offers, free giveaways, and
+                      updates.
+                    </p>
+                    <form class="space-y-2">
+                      <input type="email" placeholder="Enter your email"
+                        class="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20" /><button
+                        type="submit"
+                        class="w-full rounded-lg bg-blue-600 px-4 py-2 text-sm text-white hover:bg-blue-700 transition-colors">
+                        Subscribe
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                <div class="mt-12 border-t pt-8 text-center text-sm text-gray-600">
+                  <p>© 2026 TechStore. All rights reserved.</p>
+                  <div class="mt-2 flex justify-center gap-4">
+                    <a href="#" class="hover:text-blue-600 transition-colors">Privacy Policy</a><a href="#"
+                      class="hover:text-blue-600 transition-colors">Terms of Service</a><a href="#"
+                      class="hover:text-blue-600 transition-colors">Cookie Policy</a>
+                  </div>
+                </div>
+              </div>
+            </footer>
           </div>
         </div>
       </div>
     </div>
-    <div id="sortPopper" class="sort-popper hidden" dir="ltr" aria-hidden="true" data-radix-popper-content-wrapper>
-      <div id="sortMenu" class="sort-menu-panel" role="listbox" data-side="bottom" data-align="start">
-        <button type="button" data-sort-option data-sort-value="name-asc" data-sort-label="Name (A-Z)" class="flex w-full items-center justify-between px-4 py-3 text-left text-sm hover:bg-gray-50 transition-colors">
-          <span>Name (A-Z)</span>
-          <img data-sort-check src="../static/icons/check-black.svg" alt="" class="h-4 w-4" aria-hidden="true"/>
-        </button>
-        <button type="button" data-sort-option data-sort-value="price-asc" data-sort-label="Price (Low to High)" class="flex w-full items-center justify-between px-4 py-3 text-left text-sm hover:bg-gray-50 transition-colors">
-          <span>Price (Low to High)</span>
-          <img data-sort-check src="../static/icons/check-black.svg" alt="" class="hidden h-4 w-4" aria-hidden="true"/>
-        </button>
-        <button type="button" data-sort-option data-sort-value="price-desc" data-sort-label="Price (High to Low)" class="flex w-full items-center justify-between px-4 py-3 text-left text-sm hover:bg-gray-50 transition-colors">
-          <span>Price (High to Low)</span>
-          <img data-sort-check src="../static/icons/check-black.svg" alt="" class="hidden h-4 w-4" aria-hidden="true"/>
-        </button>
-      </div>
+  </div>
+  <div id="sortPopper" class="sort-popper hidden" dir="ltr" aria-hidden="true" data-radix-popper-content-wrapper>
+    <div id="sortMenu" class="sort-menu-panel" role="listbox" data-side="bottom" data-align="start">
+      <button type="button" data-sort-option data-sort-value="name-asc" data-sort-label="Name (A-Z)"
+        class="flex w-full items-center justify-between px-4 py-3 text-left text-sm hover:bg-gray-50 transition-colors">
+        <span>Name (A-Z)</span>
+        <img data-sort-check src="../static/icons/check-black.svg" alt="" class="h-4 w-4" aria-hidden="true" />
+      </button>
+      <button type="button" data-sort-option data-sort-value="price-asc" data-sort-label="Price (Low to High)"
+        class="flex w-full items-center justify-between px-4 py-3 text-left text-sm hover:bg-gray-50 transition-colors">
+        <span>Price (Low to High)</span>
+        <img data-sort-check src="../static/icons/check-black.svg" alt="" class="hidden h-4 w-4" aria-hidden="true" />
+      </button>
+      <button type="button" data-sort-option data-sort-value="price-desc" data-sort-label="Price (High to Low)"
+        class="flex w-full items-center justify-between px-4 py-3 text-left text-sm hover:bg-gray-50 transition-colors">
+        <span>Price (High to Low)</span>
+        <img data-sort-check src="../static/icons/check-black.svg" alt="" class="hidden h-4 w-4" aria-hidden="true" />
+      </button>
     </div>
-    <script src="../static/js/data/products.js"></script>
-    <script src="../static/js/shared.js"></script>
-    <script src="../static/js/index.js"></script>
-  </body>
+  </div>
+  <script src="../static/js/data/products.js"></script>
+  <script src="../static/js/shared.js"></script>
+  <script src="../static/js/index.js"></script>
+</body>
+
 </html>
