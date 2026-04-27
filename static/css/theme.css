@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 /* CSS variables for semantic Tailwind colors (see @theme in app.css). */
 :root {
   --font-size: 16px;
   /* Heading scale (matches Tailwind text-lg / text-xl). */
+=======
+:root {
+  --font-size: 16px;
+>>>>>>> main
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --font-weight-medium: 500;
