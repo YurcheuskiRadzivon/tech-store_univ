@@ -47,8 +47,11 @@ function initProductPage() {
 
   const highlights = product.highlights
     .map(
-      (h) =>
-        `<li class="flex items-center gap-2"><div class="h-1.5 w-1.5 rounded-full bg-blue-600"></div><span><span class="font-medium">${h.label}:</span> ${h.value}</span></li>`,
+      (h) => `
+        <li class="flex items-center gap-2">
+          <div class="h-1.5 w-1.5 rounded-full bg-blue-600"></div>
+          <span><span class="font-medium">${h.label}:</span> ${h.value}</span>
+        </li>`,
     )
     .join("");
 
@@ -149,7 +152,10 @@ function initProductPage() {
             <span class="text-sm text-gray-500">Free shipping</span>
           </div>
         </div>
-        <div class="rounded-lg bg-blue-50 p-4"><h3 class="mb-2 font-semibold text-sm">Key Highlights</h3><ul class="space-y-1 text-sm">${highlights}</ul></div>
+        <div class="rounded-lg bg-blue-50 p-4">
+          <h3 class="mb-2 font-semibold text-sm">Key Highlights</h3>
+          <ul class="space-y-1 text-sm">${highlights}</ul>
+        </div>
         <div>
           <h2 class="mb-3">Description</h2>
           <p class="text-gray-700 leading-relaxed">${product.description}</p>

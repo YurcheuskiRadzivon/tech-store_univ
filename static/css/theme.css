@@ -3,9 +3,6 @@
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  /* shadcn-style token; bundled Tailwind maps `.rounded-lg` → `var(--radius-lg)` (same 0.5rem) */
-  --radius: 0.5rem;
   --background: #fff;
   --foreground: oklch(14.5% 0 0);
   --card: #fff;
