@@ -55,6 +55,9 @@ function getCart() {
 
 function setCart(cart) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  if (!Array.isArray(cart) || cart.length === 0) {
+    localStorage.removeItem("techstore-promo"); /* cart.js PROMO_KEY */
+  }
   updateCartBadge();
 }
 
