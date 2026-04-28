@@ -1,3 +1,8 @@
+:root {
+  /* Matches bundled `--radius-lg`; use if devtools / components expect `var(--radius)` */
+  --radius: var(--radius-lg, 0.5rem);
+}
+
 html {
   font-size: var(--font-size, 16px);
   background-color: var(--background, #fff);
@@ -18,22 +23,24 @@ body {
   color: var(--foreground, #0a0a0a);
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.5;
-}
+@layer base {
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
 
-h2 {
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
-}
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 
-h3 {
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-medium);
-  line-height: 1.5;
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
 }
 
 #container .css-uwf2km {
@@ -51,6 +58,7 @@ h3 {
 
 .select-value-text {
   pointer-events: none;
+  font-weight: var(--font-weight-medium, 500);
 }
 
 .slider-root {

@@ -108,6 +108,10 @@ function initCartPage() {
       .filter(Boolean);
 
     if (items.length === 0) {
+      clearPromo();
+      if (promoInput) {
+        promoInput.value = "";
+      }
       cartItems.innerHTML = "";
       emptyCartState.hidden = false;
       if (cartLayout) {
