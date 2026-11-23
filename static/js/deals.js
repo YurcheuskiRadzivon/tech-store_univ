@@ -72,7 +72,8 @@ function initDealsPage() {
   document.title = "Special Deals · TechStore";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("products:ready", () => {
   updateCartBadge();
   initDealsPage();
 });
+

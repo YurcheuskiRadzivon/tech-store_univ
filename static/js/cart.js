@@ -6,45 +6,20 @@ function escapeHtml(text) {
     .replace(/'/g, "&#39;");
 }
 
-const PROMO_KEY = "techstore-promo";
-const TAX_RATE = 0.08;
-const PROMO_CODE = "SAVE10";
-const PROMO_DISCOUNT = 0.1;
-
-function getPromo() {
-  return localStorage.getItem(PROMO_KEY);
+function getPromo() { return serverCart.discount_percentage > 0; }
+function clearPromo() {}
+async function removeFromCart(productId) {
+  const item = getCart().find(entry => entry.id === productId);
+  if (!item) return;
+  await apiRequest(`/api/cart/items/${item.itemId}`, { method: "DELETE" });
+  await refreshCart();
 }
-
-function setPromo(code) {
-  localStorage.setItem(PROMO_KEY, code);
+async function changeCartQuantity(productId, direction) {
+  const item = getCart().find(entry => entry.id === productId);
+  if (!item) return;
+  await apiRequest(`/api/cart/items/${item.itemId}`, { method: "PATCH", body: JSON.stringify({ quantity: item.quantity + direction }) });
+  await refreshCart();
 }
-
-function clearPromo() {
-  localStorage.removeItem(PROMO_KEY);
-}
-
-function removeFromCart(productId) {
-  const nextCart = getCart().filter((item) => item.id !== productId);
-  setCart(nextCart);
-}
-
-function changeCartQuantity(productId, direction) {
-  const cart = getCart()
-    .map((item) => {
-      if (item.id !== productId) {
-        return item;
-      }
-
-      return {
-        ...item,
-        quantity: item.quantity + direction,
-      };
-    })
-    .filter((item) => item.quantity > 0);
-
-  setCart(cart);
-}
-
 const CART_TRASH_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>`;
 
 const CART_MINUS_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3" aria-hidden="true"><path d="M5 12h14"></path></svg>`;
@@ -76,11 +51,11 @@ function initCartPage() {
   document.title = "Shopping Cart · TechStore";
 
   const syncPromoUi = () => {
-    const applied = getPromo() === PROMO_CODE;
+    const applied = getPromo();
     if (promoInput) {
       promoInput.disabled = applied;
       if (applied) {
-        promoInput.value = PROMO_CODE;
+        promoInput.value = "Applied";
       }
     }
     if (promoButton) {
@@ -176,13 +151,13 @@ function initCartPage() {
 
     updateSummary(items);
     syncPromoUi();
-    if (getPromo() === PROMO_CODE) {
+    if (getPromo()) {
       showPromoMessage("Promo code applied successfully!", "success");
     }
   };
 
   if (promoInput) {
-    const storedPromo = getPromo();
+    const storedPromo = getPromo() ? "Applied" : "";
     if (storedPromo) {
       promoInput.value = storedPromo;
     }
@@ -198,31 +173,18 @@ function initCartPage() {
   }
 
   if (promoButton && promoInput) {
-    promoButton.addEventListener("click", () => {
-      const code = promoInput.value.trim().toUpperCase();
-
-      if (!code) {
-        clearPromo();
-        hidePromoMessage();
-        if (promoHint) {
-          promoHint.hidden = false;
-        }
+    promoButton.addEventListener("click", async () => {
+      if (!requireLogin()) return;
+      const code = promoInput.value.trim();
+      if (!code) { showPromoMessage("Enter a promo code.", "error"); return; }
+      try {
+        serverCart = await apiRequest("/api/cart/apply-promo", { method: "POST", body: JSON.stringify({ code }) });
+        serverCart.items ||= [];
         renderCart();
-        return;
-      }
-
-      if (code === PROMO_CODE) {
-        setPromo(code);
         showPromoMessage("Promo code applied successfully!", "success");
-      } else {
-        clearPromo();
-        showPromoMessage("Invalid promo code.", "error");
-      }
-
-      renderCart();
+      } catch (error) { showPromoMessage(error.message, "error"); }
     });
   }
-
   if (checkoutButton) {
     checkoutButton.addEventListener("click", () => {
       window.alert(
@@ -231,12 +193,12 @@ function initCartPage() {
     });
   }
 
-  cartItems.addEventListener("click", (event) => {
+  cartItems.addEventListener("click", async (event) => {
     const removeButton = event.target.closest("[data-remove-item]");
     const qtyButton = event.target.closest("[data-qty-change]");
 
     if (removeButton) {
-      removeFromCart(Number(removeButton.dataset.removeItem));
+      try { await removeFromCart(Number(removeButton.dataset.removeItem)); } catch (error) { alert(error.message); }
       renderCart();
       return;
     }
@@ -247,7 +209,7 @@ function initCartPage() {
       }
       const productId = Number(qtyButton.dataset.qtyChange);
       const direction = Number(qtyButton.dataset.direction);
-      changeCartQuantity(productId, direction);
+      try { await changeCartQuantity(productId, direction); } catch (error) { alert(error.message); }
       renderCart();
     }
   });
@@ -255,15 +217,10 @@ function initCartPage() {
   renderCart();
 
   function updateSummary(items) {
-    const subtotal = items.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0,
-    );
-    const discount = getPromo() === PROMO_CODE ? subtotal * PROMO_DISCOUNT : 0;
-    const taxableBase = Math.max(subtotal - discount, 0);
-    const tax = taxableBase * TAX_RATE;
-    const total = taxableBase + tax;
-
+    const subtotal = serverCart.subtotal;
+    const discount = subtotal - serverCart.total;
+    const tax = 0;
+    const total = serverCart.total;
     if (summarySubtotal) {
       summarySubtotal.textContent = formatCurrency(subtotal);
     }
@@ -271,7 +228,7 @@ function initCartPage() {
       if (discount > 0) {
         summaryDiscountRow.hidden = false;
         summaryDiscountRow.classList.remove("hidden");
-        summaryDiscountLabel.textContent = `Discount (${PROMO_CODE})`;
+        summaryDiscountLabel.textContent = `Discount (${serverCart.discount_percentage}%)`;
         summaryDiscount.textContent = "-" + formatCurrency(discount);
       } else {
         summaryDiscountRow.hidden = true;
@@ -302,7 +259,8 @@ function initCartPage() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("products:ready", () => {
   updateCartBadge();
   initCartPage();
 });
+

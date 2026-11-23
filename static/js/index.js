@@ -539,7 +539,8 @@ function initCatalogPage() {
   applyFilters();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("products:ready", () => {
   updateCartBadge();
   initCatalogPage();
 });
+

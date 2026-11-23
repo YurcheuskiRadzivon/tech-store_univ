@@ -57,7 +57,8 @@ function initCategoriesPage() {
   document.title = "Product Categories · TechStore";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("products:ready", () => {
   updateCartBadge();
   initCategoriesPage();
 });
+

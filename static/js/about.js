@@ -1,3 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("products:ready", () => {
   updateCartBadge();
 });
+

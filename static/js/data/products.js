@@ -1,4 +1,4 @@
-const PRODUCTS = [
+var PRODUCTS = [
   {
     id: 1,
     name: "Premium Wireless Headphones",

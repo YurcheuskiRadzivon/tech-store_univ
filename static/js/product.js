@@ -1,17 +1,11 @@
-function addToCart(productId, quantity = 1) {
-  const qty = Math.max(1, Math.min(99, Math.floor(Number(quantity)) || 1));
-  const cart = getCart();
-  const existing = cart.find((item) => item.id === productId);
-
-  if (existing) {
-    existing.quantity += qty;
-  } else {
-    cart.push({ id: productId, quantity: qty });
-  }
-
-  setCart(cart);
+async function addToCart(productId, quantity = 1) {
+  if (usingLocalCatalog) { alert("Sample products are not yet available in the server catalog."); return; }
+  if (!requireLogin()) return;
+  try {
+    await apiRequest("/api/cart/items", { method: "POST", body: JSON.stringify({ product_id: productId, quantity }) });
+    await refreshCart();
+  } catch (error) { alert(error.message); }
 }
-
 function initProductPage() {
   const root = document.getElementById("productPageRoot");
   if (!root) {
@@ -34,7 +28,7 @@ function initProductPage() {
 
   document.title = `${product.name} · TechStore`;
 
-  const images = [product.image, product.image, product.image];
+  const images = product.images?.length ? product.images : [product.image, product.image, product.image];
   const specsRows = product.specs
     .map(
       (row) => `
@@ -209,11 +203,11 @@ function initProductPage() {
   }
 
   btnPrev?.addEventListener("click", () => {
-    imageIndex = (imageIndex + 2) % 3;
+    imageIndex = (imageIndex + images.length - 1) % images.length;
     syncGallery();
   });
   btnNext?.addEventListener("click", () => {
-    imageIndex = (imageIndex + 1) % 3;
+    imageIndex = (imageIndex + 1) % images.length;
     syncGallery();
   });
 
@@ -268,7 +262,8 @@ function initProductPage() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("products:ready", () => {
   updateCartBadge();
   initProductPage();
 });
+
