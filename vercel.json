@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://backend-app-latest-qoc9.onrender.com/api/:path*"
+    }
+  ]
+}
