@@ -69,9 +69,39 @@ function requireLogin() {
   document.getElementById("authDialog").showModal();
   return false;
 }
+function getTokenClaims() {
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (!token) return null;
+  try {
+    const payload = token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const claims = JSON.parse(atob(payload.padEnd(Math.ceil(payload.length / 4) * 4, "=")));
+    if (claims.exp && claims.exp * 1000 < Date.now()) return null;
+    return claims;
+  } catch (error) {
+    return null;
+  }
+}
+function isAdmin() {
+  return getTokenClaims()?.role === "admin";
+}
+function addAdminNavLinks() {
+  if (!isAdmin()) return;
+  const current = document.body.dataset.page === "admin";
+  document.querySelectorAll("header nav").forEach((nav) => {
+    if (nav.querySelector("[data-admin-link]")) return;
+    const link = document.createElement("a");
+    link.href = "./admin.html";
+    link.dataset.adminLink = "";
+    link.className = current ? "text-blue-600 font-semibold transition-colors" : "text-gray-700 hover:text-blue-600 transition-colors";
+    link.textContent = "Admin";
+    if (current) link.setAttribute("aria-current", "page");
+    nav.append(link);
+  });
+}
 function initAuth() {
   const header = document.querySelector("header");
   if (!header) return;
+  addAdminNavLinks();
   const button = document.createElement("button");
   button.type = "button";
   button.className = "auth-trigger";
@@ -175,7 +205,7 @@ function showCatalogNotice(text) {
   document.querySelector("main")?.prepend(message);
 }
 async function loadProducts() {
-  try {
+  if (typeof PRODUCTS !== "undefined") try {
     let page = 1;
     const products = [];
     let totalPages;
